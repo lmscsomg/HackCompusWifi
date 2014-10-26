@@ -1,6 +1,7 @@
 __author__ = 'lms'
 
 import requests
+import time
 
 request_url = "http://w.nuaa.edu.cn/iPortal/action/doLogin.do"
 login_info = {
@@ -36,6 +37,8 @@ for prefix in range(10, 32):
 
 
 exit_flag = 0
+
+start_cpu = time.clock()
 for i in range(31):
     for j in range(10):
         for k in range(10):
@@ -59,3 +62,6 @@ for i in range(31):
             break
     if exit_flag:
         break
+
+end_cpu = time.clock()
+print "The time spent is " + str(end_cpu-start_cpu)
