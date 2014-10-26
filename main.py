@@ -27,14 +27,13 @@ headers = {
             }
 
 password_prefix = ['01', '02', '03', '04', '05', '06', '07', '08', '09']
-password_index = []
+password_index = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 password_male = ['1', '3', '5', '7']
 password_female = ['0', '2', '4', '6', '8']
 
 for prefix in range(10, 32):
     password_prefix.append(str(prefix))
-for middle in range(10):
-    password_index.append(str(middle))
+
 
 exit_flag = 0
 for i in range(31):
@@ -60,23 +59,4 @@ for i in range(31):
             break
     if exit:
         break
-
-
-
-'''r = requests.post(request_url,data=login_info,headers=headers)
-r1 = requests.get("http://www.cnblogs.com/Ninputer/default.html?page=2")
-print r.headers
-print r1.content
-#print r1.content
-'''
-'''loginRequest = requests.post(request_url,data=login_info,headers=headers)
-if(loginRequest.headers['content-length']=='1289'):
-    print loginRequest.headers['content-length']
-'''
-
-
-
-
-
-
 
