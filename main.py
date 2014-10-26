@@ -50,7 +50,6 @@ for i in range(31):
 
                     loginRequest = requests.post(request_url, data=login_info, headers=headers)
                     if loginRequest.headers['content-length'] >= '258':
-                        print "haha"
                         print "The password is " + login_info['password']
                         exit_flag = 1
                         break
