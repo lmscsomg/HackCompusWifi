@@ -1,4 +1,4 @@
-#HackNUAACompusWifi
+#HackCompusWifi
 This is a small program to brute-force the wifi in campus which is originally for the teachers to use.
 
 ##Tools
