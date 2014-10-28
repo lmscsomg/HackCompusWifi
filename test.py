@@ -28,5 +28,4 @@ headers = {
 
 login_info['password'] = '273416'
 loginRequest = requests.post(request_url, data=login_info, headers=headers)
-#password_divi = [0, 25, 50, 75]
 print loginRequest.headers
