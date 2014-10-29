@@ -26,6 +26,7 @@ headers = {
 
             }
 
-login_info['password'] = '273416'
+login_info['password'] = '273415'
 loginRequest = requests.post(request_url, data=login_info, headers=headers)
-print loginRequest.headers
+if '1304' >= '1300':
+    print 'yes'

