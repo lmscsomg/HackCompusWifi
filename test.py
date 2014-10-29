@@ -8,7 +8,7 @@ login_info = {
                 'password': '',
                 'saved': '1',
                 "from": '003cc944be32e25365428f2dd2adbbe2',
-                'domain': 'nuaa'
+                'domain': '1'
                  }
 
 headers = {
